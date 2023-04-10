@@ -33,4 +33,6 @@ public class HomeController {
 		map.put("message", "Server message with " + msg);
 		return map;
 	}
+	
+	
 }

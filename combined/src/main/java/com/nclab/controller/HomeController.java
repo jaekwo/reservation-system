@@ -1,4 +1,4 @@
-package com.example.nclab.controller;
+package com.nclab.controller;
 
 import java.util.HashMap;
 import java.util.Map;

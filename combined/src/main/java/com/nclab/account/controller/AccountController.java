@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.nclab.account.dao.AccountDAO;
+import com.nclab.account.service.AccountServiceImpl;
 import com.nclab.account.vo.AccountVO;
 
 @Controller
@@ -19,14 +19,18 @@ public class AccountController {
 	
 	private Logger logger = LoggerFactory.getLogger(AccountController.class);
 	
+	
+//	@Autowired
+//	private AccountDAO accountDao;
+	
 	@Autowired
-	private AccountDAO accountDao;
+	public AccountServiceImpl accountService;
 	
 	@RequestMapping("/news")
 	public @ResponseBody Map<String, Object> accountList() throws Exception {
 		Map<String, Object> rtnObj = new HashMap<String, Object>();
 		
-		List<AccountVO> accountList = accountDao.listAccount();
+		List<AccountVO> accountList = accountService.listAccount();
 		logger.info("account ->" + accountList.toString());
 		
 		rtnObj.put("account_list", accountList);

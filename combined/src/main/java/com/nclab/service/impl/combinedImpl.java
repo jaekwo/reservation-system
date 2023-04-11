@@ -7,7 +7,7 @@ import com.nclab.dao.nclabmapper;
 import com.nclab.service.combinedservice;
 import com.nclab.vo.combinedvo;
 
-@Service("mainservice")
+@Service
 public class combinedImpl implements combinedservice {
 
 	@Autowired

@@ -4,6 +4,7 @@ import java.util.Locale;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ import com.nclab.vo.combinedvo;
 @Controller
 public class nclabController {
 
-	@Resource(name="mainservice")
+	@Autowired
 	combinedservice comservice;
 	
 	@RequestMapping(value="/main", method = RequestMethod.GET)
@@ -24,6 +25,6 @@ public class nclabController {
 		combinedvo comvo = comservice.getEmpno();
 		System.out.println("Å×½ºÆ®"+comvo.getEname());
 		model.addAttribute("empno", comvo);
-		return "d";
+		return "main";
 	}
 }

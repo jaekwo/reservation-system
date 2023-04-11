@@ -1,4 +1,5 @@
-package com.example.nclab;
+package com.nclab;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,5 +10,4 @@ public class CombinedApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CombinedApplication.class, args);
 	}
-
 }

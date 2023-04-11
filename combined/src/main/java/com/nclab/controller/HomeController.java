@@ -1,4 +1,4 @@
-package com.example.nclab.controller;
+package com.nclab.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +27,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/data", method=RequestMethod.GET)
 	@ResponseBody
-	public Map<String, Object> data(@RequestParam(name="msg") String msg) {
+	public Map<String, Object> data(@RequestParam(name="msg", defaultValue="test") String msg) {
 		logger.debug("Message : {}", msg);
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("message", "Server message with " + msg);

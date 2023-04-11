@@ -19,10 +19,6 @@ public class AccountController {
 	
 	private Logger logger = LoggerFactory.getLogger(AccountController.class);
 	
-	
-//	@Autowired
-//	private AccountDAO accountDao;
-	
 	@Autowired
 	public AccountServiceImpl accountService;
 	

@@ -9,5 +9,7 @@ import com.nclab.account.vo.AccountVO;
 @Mapper
 public interface AccountDAO {
 
+	public AccountVO findAccount(String userId);
 	public List<AccountVO> listAccount();
+	public void insertAccount(AccountVO account);
 }

@@ -5,6 +5,20 @@
 
 <mapper namespace="com.nclab.account.dao.AccountDAO">
 	<select id="listAccount" resultType="com.nclab.account.vo.AccountVO">
-		select id, name from account
+		select * from account
 	</select>
+	
+	<select id="findAccount" resultType="com.nclab.account.vo.AccountVO">
+		select * from account where id = #{userId} 
+	</select>
+	
+	<insert id="insertAccount">
+		insert into account (id, pw, name, mobile, birthDay, email, creDtt, updDtt, grade) values(#{id}, #{pw}, #{name}, #{mobile}, #{birthDay}, #{email}, #{creDtt}, #{updDtt}, #{grade})
+	</insert>
+	
+	<!-- 
+	<select id="findHotelByAddressOrName" resultType="com.nclab.hotel.vo.HotelVO">
+		select * from hotel where address like '%' || #{keyword} || '%' or name like '%' || #{keyword} || '%'
+	</select>
+	 -->
 </mapper>

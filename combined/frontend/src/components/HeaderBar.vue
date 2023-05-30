@@ -2,7 +2,8 @@
   <div class="header">
     <router-link to="/">Main | </router-link>
     <router-link to="/loginView">Login | </router-link>
-    <router-link to="/joinView">Join</router-link>
+    <router-link to="/joinView">Join | </router-link>
+    <router-link to="/hotelView">Hotel</router-link>
   </div>
 </template>
 

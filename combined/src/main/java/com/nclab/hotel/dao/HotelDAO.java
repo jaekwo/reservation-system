@@ -10,4 +10,6 @@ import com.nclab.hotel.vo.HotelVO;
 public interface HotelDAO {
 
 	public List<HotelVO> findHotelByAddressOrName(String keyword);
+	
+	public List<HotelVO> getTest();
 }

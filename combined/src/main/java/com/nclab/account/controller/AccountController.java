@@ -1,5 +1,7 @@
 package com.nclab.account.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +24,23 @@ public class AccountController {
 	@Autowired
 	public AccountServiceImpl accountService;
 
+	
 	@PostMapping(value="/loginAction")
-	public AccountVO loginAction(@RequestBody LoginDto loginUser) {
-		AccountVO accountVO = accountService.findAccount(loginUser.userId);
-		if(accountVO == null) throw new NullPointerException("계정을 확인해주세요.");
-		return accountVO;
+	public String loginAction(@RequestBody LoginDto loginUser) {
+		String msg = "sucess";
+		AccountVO account = accountService.findAccount(loginUser.userId);
+		if(account == null) {
+			msg = "checkAccount";
+			log.info("계정을 확인해주세요");
+		} else if (!loginUser.userPw.equals(account.pw)) {
+			msg = "checkPw";
+			log.info("비밀번호를 확인해주세요");
+		} else {
+			msg = "sucess";
+			// 로그인 처리
+			log.info("로그인 : " + account.id);
+		}
+		return msg;
 	}
 	
 	@PostMapping(value="/joinAction")

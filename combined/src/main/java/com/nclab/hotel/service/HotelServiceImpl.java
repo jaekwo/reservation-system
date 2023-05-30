@@ -18,4 +18,9 @@ public class HotelServiceImpl implements HotelService {
 	public List<HotelVO> findHotelByAddressOrName(String keyword) {
 		return hotelRepository.findHotelByAddressOrName(keyword);
 	}
+	
+	@Override
+	public List<HotelVO> getTest() {
+		return hotelRepository.getTest();
+	}
 }

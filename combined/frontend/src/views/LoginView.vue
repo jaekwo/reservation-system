@@ -22,17 +22,23 @@ export default {
     data: function() {
         return {
             userId: '',
-            userPw: ''
+            userPw: '',
         }
     },
     methods: {
         loginAction: function() {
             this.axios.post("/vue/account/loginAction", {
-                userId:this.userId,
-                userPw:this.userPw
+                userId: this.userId,
+                userPw: this.userPw
             }).then(res => {
-                console.log(res);
-                this.$router.push('/');
+                if(res.data === "checkAccount") {
+                    alert("계정을 확인해주세요");
+                } else if(res.data === "checkPw") {
+                    alert("비밀번호를 확인해주세요");
+                } else {
+                    console.log(res);
+                    this.$router.push('/');
+                }
             }).catch(err => {
                 console.log(err);
             })

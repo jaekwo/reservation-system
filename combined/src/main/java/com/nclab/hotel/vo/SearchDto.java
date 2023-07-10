@@ -1,14 +1,12 @@
 package com.nclab.hotel.vo;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
 public class SearchDto {
 	
 	public String keyword;
-	
+	public int grade;
 }

@@ -1,8 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router';
-import MainView from '../views/MainView';
-import LoginView from '../views/LoginView';
-import JoinView from '../views/JoinView';
-import HotelView from '../views/HotelView';
+import MainView from '../components/Main/MainView';
+import LoginView from '../components/Account/LoginView';
+import JoinView from '../components/Account/JoinView';
+import HotelListView from '../components/Hotel/HotelListView';
 
 const routes = [
     {
@@ -19,7 +19,7 @@ const routes = [
     },
     {
         path: '/hotelList',
-        component: HotelView,
+        component: HotelListView,
     }
 ];
 

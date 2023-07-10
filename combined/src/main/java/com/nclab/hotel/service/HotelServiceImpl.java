@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.nclab.hotel.dao.HotelDAO;
 import com.nclab.hotel.vo.HotelVO;
+import com.nclab.hotel.vo.SearchDto;
 
 @Service
 public class HotelServiceImpl implements HotelService {
@@ -20,7 +21,7 @@ public class HotelServiceImpl implements HotelService {
 	}
 	
 	@Override
-	public List<HotelVO> getTest() {
-		return hotelRepository.getTest();
+	public List<HotelVO> searchHotelList(SearchDto search) {
+		return hotelRepository.searchHotelList(search);
 	}
 }

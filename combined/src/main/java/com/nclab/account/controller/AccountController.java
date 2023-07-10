@@ -26,7 +26,7 @@ public class AccountController {
 
 	
 	@PostMapping(value="/loginAction")
-	public String loginAction(@RequestBody LoginDto loginUser) {
+	public String loginAction(@RequestBody LoginDto loginUser, HttpSession session) {
 		String msg = "sucess";
 		AccountVO account = accountService.findAccount(loginUser.userId);
 		if(account == null) {
@@ -37,7 +37,7 @@ public class AccountController {
 			log.info("비밀번호를 확인해주세요");
 		} else {
 			msg = "sucess";
-			// 로그인 처리
+			session.setAttribute("accountVO", account); 
 			log.info("로그인 : " + account.id);
 		}
 		return msg;

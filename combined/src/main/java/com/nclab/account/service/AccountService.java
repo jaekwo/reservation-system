@@ -2,6 +2,8 @@ package com.nclab.account.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.nclab.account.vo.AccountVO;
 
 public interface AccountService {

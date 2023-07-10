@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import MainSearch from '../components/MainSearch.vue';
+import MainSearch from './MainSearch.vue';
 
 export default {
   components: {

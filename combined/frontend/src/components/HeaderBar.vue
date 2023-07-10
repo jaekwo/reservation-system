@@ -3,7 +3,7 @@
     <router-link to="/">Main | </router-link>
     <router-link to="/loginView">Login | </router-link>
     <router-link to="/joinView">Join | </router-link>
-    <router-link to="/hotelView">Hotel</router-link>
+    <router-link to="/hotelList">Hotel</router-link>
   </div>
 </template>
 

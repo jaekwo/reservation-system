@@ -15,10 +15,4 @@
 	<insert id="insertAccount">
 		insert into account (id, pw, name, mobile, birthDay, email, creDtt, updDtt, grade) values(#{id}, #{pw}, #{name}, #{mobile}, #{birthDay}, #{email}, #{creDtt}, #{updDtt}, #{grade})
 	</insert>
-	
-	<!-- 
-	<select id="findHotelByAddressOrName" resultType="com.nclab.hotel.vo.HotelVO">
-		select * from hotel where address like '%' || #{keyword} || '%' or name like '%' || #{keyword} || '%'
-	</select>
-	 -->
 </mapper>

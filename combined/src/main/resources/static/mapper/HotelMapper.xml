@@ -4,11 +4,30 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.nclab.hotel.dao.HotelDAO">
-	<select id="getTest" resultType="com.nclab.hotel.vo.HotelVO">
-		select * from hotel
+	<select id="findHotelByAddressOrName" resultType="com.nclab.hotel.vo.HotelVO">
+		SELECT h.HOTEL_CODE, h.AREA_CODE , h.ADDRESS , h.NAME , h.GRADE 
+		FROM HOTEL h 
+			INNER JOIN TAD_AREA a
+				ON h.AREA_CODE = a.CODE
+		WHERE 
+			(h.ADDRESS LIKE '%' || #{keyword} || '%' OR
+			h.NAME LIKE '%' || #{keyword} || '%') OR
+			a.NAME LIKE '%' || #{keyword} || '%'
 	</select>
 	
-	<select id="findHotelByAddressOrName" resultType="com.nclab.hotel.vo.HotelVO">
-		select * from hotel where address like '%' || #{keyword} || '%' or name like '%' || #{keyword} || '%'
+	<select id="searchHotelList" resultType="com.nclab.hotel.vo.HotelVO">
+		SELECT h.HOTEL_CODE, h.AREA_CODE , h.ADDRESS , h.NAME , h.GRADE 
+		FROM HOTEL h 
+			INNER JOIN TAD_AREA a
+				ON h.AREA_CODE = a.CODE
+		WHERE 1=1
+		<if test="keyword != null and keyword != ''">
+			(h.ADDRESS LIKE '%' || #{keyword} || '%' OR
+			h.NAME LIKE '%' || #{keyword} || '%') OR
+			a.NAME LIKE '%' || #{keyword} || '%'
+		</if>
+		<if test="grade != null and grade != ''">
+			AND h.GRADE = #{grade}
+		</if>
 	</select>
 </mapper>

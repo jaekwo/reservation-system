@@ -4,10 +4,7 @@ module.exports = {
         proxy: {
             '/vue': {
                 target: 'http://localhost:8081',
-                changeOrigin: true,
-//                pathRewrite: {
-//                    '^/data': ''
-//                }
+                changeOrigin: true, // cross origin
             }
         }
     }
